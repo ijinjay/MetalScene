@@ -16,6 +16,10 @@
 		88FB79061B5F81920073B011 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FB79041B5F81920073B011 /* LaunchScreen.storyboard */; };
 		88FB79111B5F81930073B011 /* MetalSceneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FB79101B5F81930073B011 /* MetalSceneTests.m */; };
 		88FB791C1B5F81930073B011 /* MetalSceneUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FB791B1B5F81930073B011 /* MetalSceneUITests.m */; };
+		88FB792A1B5F89BE0073B011 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FB79291B5F89BE0073B011 /* AVFoundation.framework */; };
+		88FB792C1B5F89C50073B011 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FB792B1B5F89C50073B011 /* SceneKit.framework */; };
+		88FB792E1B5F89D00073B011 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FB792D1B5F89D00073B011 /* Metal.framework */; };
+		88FB79301B5F92980073B011 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FB792F1B5F92980073B011 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		88FB79171B5F81930073B011 /* MetalSceneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalSceneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FB791B1B5F81930073B011 /* MetalSceneUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalSceneUITests.m; sourceTree = "<group>"; };
 		88FB791D1B5F81930073B011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88FB79291B5F89BE0073B011 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		88FB792B1B5F89C50073B011 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		88FB792D1B5F89D00073B011 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		88FB792F1B5F92980073B011 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FB79301B5F92980073B011 /* CoreMotion.framework in Frameworks */,
+				88FB792E1B5F89D00073B011 /* Metal.framework in Frameworks */,
+				88FB792C1B5F89C50073B011 /* SceneKit.framework in Frameworks */,
+				88FB792A1B5F89BE0073B011 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +95,10 @@
 		88FB78E81B5F81920073B011 = {
 			isa = PBXGroup;
 			children = (
+				88FB792F1B5F92980073B011 /* CoreMotion.framework */,
+				88FB792D1B5F89D00073B011 /* Metal.framework */,
+				88FB792B1B5F89C50073B011 /* SceneKit.framework */,
+				88FB79291B5F89BE0073B011 /* AVFoundation.framework */,
 				88FB78F31B5F81920073B011 /* MetalScene */,
 				88FB790F1B5F81930073B011 /* MetalSceneTests */,
 				88FB791A1B5F81930073B011 /* MetalSceneUITests */,

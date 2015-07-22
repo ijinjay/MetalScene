@@ -9,8 +9,9 @@
 @import UIKit;
 @import Metal;
 @import MetalKit;
+@import AVFoundation;
 
-@interface GameViewController : UIViewController<MTKViewDelegate>
+@interface GameViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @end
 
