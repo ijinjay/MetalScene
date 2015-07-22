@@ -518,6 +518,7 @@
 				88FB79221B5F81930073B011 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88FB79231B5F81930073B011 /* Build configuration list for PBXNativeTarget "MetalSceneTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +527,7 @@
 				88FB79251B5F81930073B011 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88FB79261B5F81930073B011 /* Build configuration list for PBXNativeTarget "MetalSceneUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +536,7 @@
 				88FB79281B5F81930073B011 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
