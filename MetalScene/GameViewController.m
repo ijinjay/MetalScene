@@ -12,8 +12,7 @@
 @import SceneKit;
 @import CoreMotion;
 
-@implementation GameViewController
-{
+@implementation GameViewController {
     // view
     MTKView *_view;
     
@@ -25,19 +24,17 @@
     id <MTLDepthStencilState> _depthState;
     
     AVCaptureVideoDataOutput *_videoData;
-    
+    AVCaptureSession *_captureSession;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     [self _setupMetal];
     [self _setupView];
 }
 
-- (void)_setupView
-{
+- (void)_setupView {
     _view = (MTKView *)self.view;
     
     // Setup the render target, choose values based on your app
@@ -48,8 +45,7 @@
     
 }
 
-- (void)_setupMetal
-{
+- (void)_setupMetal {
     // Set the view to use the default device
     _device = MTLCreateSystemDefaultDevice();
     
@@ -60,6 +56,11 @@
     _defaultLibrary = [_device newDefaultLibrary];
 }
 
+- (void)_setupVideo {
+    _captureSession = [[AVCaptureSession alloc] init];
+    [_captureSession beginConfiguration];
+    [_captureSession setSessionPreset:AVCaptureSessionPreset640x480];
+}
 
 
 
