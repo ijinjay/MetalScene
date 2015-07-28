@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		885A8A251B5FD16E0074BC61 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 885A8A241B5FD16E0074BC61 /* art.scnassets */; };
+		885A8A271B5FD1BC0074BC61 /* Serena.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 885A8A261B5FD1BC0074BC61 /* Serena.scnassets */; };
 		88FB78F61B5F81920073B011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FB78F51B5F81920073B011 /* main.m */; };
 		88FB78F91B5F81920073B011 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FB78F81B5F81920073B011 /* AppDelegate.m */; };
 		88FB78FC1B5F81920073B011 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FB78FB1B5F81920073B011 /* GameViewController.m */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		885A8A241B5FD16E0074BC61 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		885A8A261B5FD1BC0074BC61 /* Serena.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Serena.scnassets; sourceTree = "<group>"; };
 		88FB78F11B5F81920073B011 /* MetalScene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalScene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FB78F51B5F81920073B011 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88FB78F71B5F81920073B011 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		88FB78F31B5F81920073B011 /* MetalScene */ = {
 			isa = PBXGroup;
 			children = (
+				885A8A261B5FD1BC0074BC61 /* Serena.scnassets */,
+				885A8A241B5FD16E0074BC61 /* art.scnassets */,
 				88FB78F71B5F81920073B011 /* AppDelegate.h */,
 				88FB78F81B5F81920073B011 /* AppDelegate.m */,
 				88FB78FA1B5F81920073B011 /* GameViewController.h */,
@@ -263,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				88FB79061B5F81920073B011 /* LaunchScreen.storyboard in Resources */,
+				885A8A271B5FD1BC0074BC61 /* Serena.scnassets in Resources */,
+				885A8A251B5FD16E0074BC61 /* art.scnassets in Resources */,
 				88FB79031B5F81920073B011 /* Assets.xcassets in Resources */,
 				88FB79011B5F81920073B011 /* Main.storyboard in Resources */,
 			);

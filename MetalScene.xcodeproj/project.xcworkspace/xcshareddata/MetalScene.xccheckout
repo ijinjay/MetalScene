@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0EB613AA-AE8B-47FB-AD86-914562E0FFBA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MetalScene</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C4D250027D9DF6AAF7D40B673686A496410F8706</key>
+		<string>github.com:jinjaysnow/MetalScene.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MetalScene.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C4D250027D9DF6AAF7D40B673686A496410F8706</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:jinjaysnow/MetalScene.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C4D250027D9DF6AAF7D40B673686A496410F8706</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C4D250027D9DF6AAF7D40B673686A496410F8706</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MetalScene</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "AppDelegate.h"
 
 @import GLKit;
 @import SceneKit;
@@ -31,13 +32,60 @@
     // can synchronize between g_max_inflight_buffers count buffers, and thus avoiding a constant buffer from being overwritten between draws
     NSUInteger _constantDataBufferIndex;
     dispatch_semaphore_t _inflight_semaphore;
+    
+    // SceneKit
+    SCNRenderer *_render;
+    SCNNode *_camera;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self _setupMetal];
+    [self _setupScene];
     [self _setupView];
+}
+
+- (void)_addNode2Scene:(SCNScene *)scene at:(SCNVector3)pos withNode:(SCNNode *)node {
+    SCNNode *t = [node clone];
+    t.position = pos;
+    [scene.rootNode addChildNode:t];
+}
+- (void)_setupScene {
+    // init scenekit renderer with current mtldevice
+    _render = [SCNRenderer rendererWithDevice:_device options:nil];
+    // load sample scene
+    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/ship.dae"];
+    // position camera
+    _camera = [SCNNode node];
+    _camera.camera = [SCNCamera camera];
+    [scene.rootNode addChildNode:_camera];
+    
+    // place the camera
+    _camera.position = SCNVector3Make(0, 0, 0);
+    
+    // create and add an ambient light to the scene
+    SCNNode *ambientLightNode = [SCNNode node];
+    ambientLightNode.light = [SCNLight light];
+    ambientLightNode.light.type = SCNLightTypeAmbient;
+    ambientLightNode.light.color = [UIColor darkGrayColor];
+    [scene.rootNode addChildNode:ambientLightNode];
+    
+    // retrieve the ship node
+    SCNNode *ship = [scene.rootNode childNodeWithName:@"ship" recursively:YES];
+    ship.position = SCNVector3Make(0, 0, -15);
+    
+    // retrieve the Serena node
+    SCNNode *serena = [[[SCNScene sceneNamed:@"Serena.scnassets/Serena.dae"] rootNode] childNodeWithName:@"root" recursively:YES];
+    
+    // add new nodes
+    [self _addNode2Scene:scene at:SCNVector3Make(0, 0, 15) withNode:serena];
+    [self _addNode2Scene:scene at:SCNVector3Make(0, 15, 0) withNode:ship];
+    [self _addNode2Scene:scene at:SCNVector3Make(0, -15, 0) withNode:serena];
+    [self _addNode2Scene:scene at:SCNVector3Make(15, 0, 0) withNode:ship];
+    [self _addNode2Scene:scene at:SCNVector3Make(-15, 0, 0) withNode:serena];
+    
+    [_render setScene:scene];
 }
 
 - (void)_setupView {
@@ -152,8 +200,6 @@
 }
 
 - (void)render {
-    
-    
     dispatch_semaphore_wait(_inflight_semaphore, DISPATCH_TIME_FOREVER);
     
     id <MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
@@ -185,5 +231,43 @@
     _constantDataBufferIndex = (_constantDataBufferIndex + 1) % 3;
 }
 
+// MARK: Lifecycle
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self commonInit];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self stopUpdate];
+}
+
+
+// MARK: CoreMotion
+- (void)commonInit{
+    CMMotionManager *manager = [(AppDelegate *)[[UIApplication sharedApplication] delegate] sharedManager];
+    if (manager.deviceMotionAvailable && ([CMMotionManager availableAttitudeReferenceFrames] & CMAttitudeReferenceFrameXTrueNorthZVertical)) {
+        [manager setDeviceMotionUpdateInterval:0.01];
+        [manager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXTrueNorthZVertical toQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion * __nullable motion, NSError * __nullable error) {
+            if (error == nil) {
+                CMRotationMatrix m3 = motion.attitude.rotationMatrix;
+            
+                GLKMatrix4 m4 = GLKMatrix4Make(m3.m11, m3.m12, m3.m13, 0.0,
+                                               m3.m21, m3.m22, m3.m23, 0.0,
+                                               m3.m31, m3.m32, m3.m33, 0.0,
+                                                  0.0,    0.0,    0.0, 1.0);
+                SCNMatrix4 s4 = SCNMatrix4FromGLKMatrix4(m4);
+                
+                _camera.transform = SCNMatrix4Mult(s4, SCNMatrix4MakeRotation(M_PI_2, -1, 0, 0));
+            }
+        }];
+    }
+}
+
+- (void)stopUpdate{
+    CMMotionManager *manager = [(AppDelegate *)[[UIApplication sharedApplication] delegate] sharedManager];
+    if (manager.isDeviceMotionActive) {
+        [manager stopDeviceMotionUpdates];
+    }
+}
 @end
 
